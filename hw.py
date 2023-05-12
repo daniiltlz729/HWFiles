@@ -1,40 +1,40 @@
-# def get_shop_list_by_dishes(dishes, person_count):
-#     res = {}
-#     for dish in dishes:
-#         if dish in food:
-#             for ingredient in food[dish]:
-#                 name = ingredient['Продукт'] 
-#                 count = int(ingredient['Кол-во']) * person_count
-#                 if name in res:
-#                     count += res[name]['quantity']
-#                 res[name] = {
-#                     'measure': ingredient['Единица измерения'],
-#                     'quantity': count} 
-#     return res     
+def get_shop_list_by_dishes(dishes, person_count):
+    res = {}
+    for dish in dishes:
+        if dish in food:
+            for ingredient in food[dish]:
+                name = ingredient['Продукт'] 
+                count = int(ingredient['Кол-во']) * person_count
+                if name in res:
+                    count += res[name]['quantity']
+                res[name] = {
+                    'measure': ingredient['Единица измерения'],
+                    'quantity': count} 
+    return res     
 
 
-# with open('recipes.txt', encoding="utf-8") as file:
-#     food = {}
-#     for line in file:
-#         name_food = line.strip()
-#         food_count = int(file.readline())
-#         emp = []
-#         for i in range(food_count):
-#             f = file.readline().strip()
-#             name, count, unit = f.split(' | ')
-#             emp.append(
-#                 {
-#                     'Продукт': name,
-#                     'Кол-во': count,
-#                     'Единица измерения': unit
-#                 }
-#             )
-#         food[name_food] = emp
-#         file.readline()
-# print(food)
+with open('recipes.txt', encoding="utf-8") as file:
+    food = {}
+    for line in file:
+        name_food = line.strip()
+        food_count = int(file.readline())
+        emp = []
+        for i in range(food_count):
+            f = file.readline().strip()
+            name, count, unit = f.split(' | ')
+            emp.append(
+                {
+                    'Продукт': name,
+                    'Кол-во': count,
+                    'Единица измерения': unit
+                }
+            )
+        food[name_food] = emp
+        file.readline()
+print(food)
 
-# result = get_shop_list_by_dishes(['Фахитос', 'Омлет'], 2)
-# print('КОЛИЧЕСТВО ПРОДУКТОВ ДЛЯ БЛЮД:\n', result)
+result = get_shop_list_by_dishes(['Фахитос', 'Омлет'], 2)
+print('КОЛИЧЕСТВО ПРОДУКТОВ ДЛЯ БЛЮД:\n', result)
 
 
 
